@@ -6,5 +6,9 @@ console: ## Jump into the console and interact wih the services
 	APP_ENV=$(APP_ENV) bundle exec ruby tasks/console.rb
 .PHONY: console
 
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+test: ## Run all the tests
+	bundle exec rspec spec
+
+help: ## Display this message
+	@echo "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\1:\2/' | column -c2 -t -s :)"
+.PHONY: help
