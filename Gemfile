@@ -1,8 +1,10 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'pg', '~> 1.1.4'
-gem 'activerecord', '~> 5.2.3'
+ruby '2.6.5'
+
+# gem 'pg', '~> 1.1.4'
+# gem 'activerecord', '~> 5.2.3'
 
 group :development, :test do
   gem 'rspec'
